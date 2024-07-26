@@ -26,6 +26,10 @@ dependencies:
   rive: ^0.13.4
   shared_preferences: ^2.2.3
   sqflite_common_ffi: ^2.3.3
+  window_size:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding.git
+      path: plugins/window_size
 
 dev_dependencies:
   bloc_test: ^9.1.7

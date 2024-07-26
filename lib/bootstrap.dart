@@ -1,11 +1,14 @@
 import 'dart:async';
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:interval/core/services/cache_helper.dart';
 import 'package:interval/core/services/injection_container.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:window_size/window_size.dart';
 
 class AppBlocObserver extends BlocObserver {
   const AppBlocObserver();
@@ -31,9 +34,15 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   Bloc.observer = const AppBlocObserver();
 
   // Add cross-flavor configuration here
+  WidgetsFlutterBinding.ensureInitialized();
   await init();
   CacheHelper.instance
     ..init(sl<SharedPreferences>())
     ..getThemeMode();
+  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+    setWindowTitle('Interval');
+    setWindowMinSize(const Size(1300, 800));
+    setWindowMaxSize(Size.infinite);
+  }
   runApp(await builder());
 }
