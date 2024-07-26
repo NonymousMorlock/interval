@@ -3,6 +3,9 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:interval/core/services/cache_helper.dart';
+import 'package:interval/core/services/injection_container.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AppBlocObserver extends BlocObserver {
   const AppBlocObserver();
@@ -28,6 +31,9 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   Bloc.observer = const AppBlocObserver();
 
   // Add cross-flavor configuration here
-
+  await init();
+  CacheHelper.instance
+    ..init(sl<SharedPreferences>())
+    ..getThemeMode();
   runApp(await builder());
 }
