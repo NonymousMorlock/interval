@@ -9,10 +9,23 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        appBarTheme: AppBarTheme(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        colorScheme: const ColorScheme(
+          primary: Color(0xFF0D47A1),
+          primaryContainer: Color(0xFF5472D3),
+          secondary: Color(0xFFFFC107),
+          secondaryContainer: Color(0xFFFFF350),
+          surface: Colors.white,
+          error: Colors.red,
+          onPrimary: Colors.white,
+          onSecondary: Colors.black,
+          onSurface: Colors.black,
+          onError: Colors.white,
+          brightness: Brightness.light,
         ),
-        useMaterial3: true,
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(color: Color(0xFF212121)),
+          bodyMedium: TextStyle(color: Color(0xFF212121)),
+        ),
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
