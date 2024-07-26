@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interval/core/common/app/current_theme_mode.dart';
-import 'package:interval/counter/counter.dart';
+import 'package:interval/core/services/router.dart';
 import 'package:interval/l10n/l10n.dart';
 
 class App extends StatelessWidget {
@@ -11,7 +11,8 @@ class App extends StatelessWidget {
     return ValueListenableBuilder(
       valueListenable: CurrentThemeMode.instance,
       builder: (context, themeMode, __) {
-        return MaterialApp(
+        return MaterialApp.router(
+          routerConfig: router,
           themeMode: themeMode,
           theme: ThemeData(
             colorScheme: const ColorScheme(
@@ -53,7 +54,6 @@ class App extends StatelessWidget {
           ),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
-          home: const CounterPage(),
         );
       },
     );
