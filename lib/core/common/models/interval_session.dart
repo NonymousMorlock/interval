@@ -1,20 +1,24 @@
 class IntervalSession {
   IntervalSession({
     required this.id,
+    required this.title,
     required this.prioritizeOverlap,
     required this.mainTime,
     required this.workTime,
     required this.restTime,
     required this.createdAt,
     this.lastUpdatedAt,
+    this.description,
   });
 
   factory IntervalSession.fromMap(Map<String, dynamic> map) {
     return IntervalSession(
-      id: map['id'] as int,
-      mainTime: map['mainTime'] as int,
-      workTime: map['workTime'] as int,
-      restTime: map['restTime'] as int,
+      id: (map['id'] as num).toInt(),
+      title: map['title'] as String,
+      description: map['description'] as String,
+      mainTime: (map['mainTime'] as num).toInt(),
+      workTime: (map['workTime'] as num).toInt(),
+      restTime: (map['restTime'] as num).toInt(),
       prioritizeOverlap: map['prioritizeOverlap'] as num == 1,
       createdAt: DateTime.parse(map['createdAt'] as String),
       lastUpdatedAt: map['lastUpdatedAt'] == null
@@ -24,6 +28,8 @@ class IntervalSession {
   }
 
   final int id;
+  final String title;
+  final String? description;
   final int mainTime;
   final int workTime;
   final int restTime;
@@ -33,7 +39,8 @@ class IntervalSession {
 
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
+      'title': title,
+      'description': description,
       'mainTime': mainTime,
       'workTime': workTime,
       'restTime': restTime,
@@ -45,6 +52,8 @@ class IntervalSession {
 
   IntervalSession copyWith({
     int? id,
+    String? title,
+    String? description,
     int? mainTime,
     int? workTime,
     int? restTime,
@@ -54,6 +63,8 @@ class IntervalSession {
   }) {
     return IntervalSession(
       id: id ?? this.id,
+      title: title ?? this.title,
+      description: description ?? this.description,
       mainTime: mainTime ?? this.mainTime,
       workTime: workTime ?? this.workTime,
       restTime: restTime ?? this.restTime,
