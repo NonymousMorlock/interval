@@ -25,7 +25,7 @@ dependencies:
   lottie: ^3.1.2
   path: ^1.9.0
   provider: ^6.1.2
-  rive: ^0.13.4
+  rive: ^0.13.12
   shared_preferences: ^2.2.3
   sqflite: ^2.3.3+1
   sqflite_common_ffi: ^2.3.3
