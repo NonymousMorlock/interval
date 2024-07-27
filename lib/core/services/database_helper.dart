@@ -1,96 +1,90 @@
-import 'package:interval/core/common/models/interval_session.dart';
 import 'package:path/path.dart' as $path;
-import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:sqflite/sqflite.dart' as mobile;
+import 'package:sqflite_common_ffi/sqflite_ffi.dart' as desktop;
 
-class DatabaseHelper {
-  DatabaseHelper._internal();
+sealed class DatabaseHelper {
+  static const createIntervalsTableQuery =
+      // ignore: missing_whitespace_between_adjacent_strings
+      'CREATE TABLE intervals('
+      'id INTEGER PRIMARY KEY AUTOINCREMENT, '
+      'title STRING UNIQUE NOT NULL, '
+      'mainTime INTEGER NOT NULL, '
+      'workTime INTEGER NOT NULL, '
+      'restTime INTEGER NOT NULL, '
+      'createdAt STRING NOT NULL, '
+      'description STRING, '
+      // ignore: missing_whitespace_between_adjacent_strings
+      'lastUpdatedAt STRING'
+      ')';
 
-  static final DatabaseHelper instance = DatabaseHelper._internal();
-
-  static Database? _database;
-
-  Future<Database> get database async {
-    if (_database != null) return _database!;
-
-    _database = await _initDatabase();
-    return _database!;
-  }
-
-  Future<Database> _initDatabase() async {
-    final dbFactory = databaseFactoryFfi;
-    final dbPath = $path.join(await getDatabasesPath(), 'intervals.db');
-    return dbFactory.openDatabase(
+  static Future<desktop.Database> initDatabaseDesktop() async {
+    desktop.databaseFactory = desktop.databaseFactoryFfi;
+    final dbPath = $path.join(await desktop.getDatabasesPath(), 'intervals.db');
+    return desktop.databaseFactory.openDatabase(
       dbPath,
-      options: OpenDatabaseOptions(
+      options: desktop.OpenDatabaseOptions(
         version: 1,
         onCreate: (db, version) {
-          return db.execute(
-            // ignore: missing_whitespace_between_adjacent_strings
-            'CREATE TABLE intervals('
-            'id INTEGER PRIMARY KEY AUTOINCREMENT, '
-            'mainTime INTEGER, '
-            'workTime INTEGER, '
-            'restTime INTEGER, '
-            'createdAt STRING, '
-            // ignore: missing_whitespace_between_adjacent_strings
-            'lastUpdatedAt STRING'
-            ')',
-          );
+          return db.execute(createIntervalsTableQuery);
         },
       ),
     );
   }
 
-  Future<int> insertInterval(IntervalSession interval) async {
-    final db = await database;
-    return db.insert(
-      'intervals',
-      interval.toMap(),
-      conflictAlgorithm: ConflictAlgorithm.replace,
+  static Future<mobile.Database> initDatabaseMobile() async {
+    final dbPath = $path.join(await mobile.getDatabasesPath(), 'intervals.db');
+
+    return mobile.openDatabase(
+      dbPath,
+      version: 1,
+      onCreate: (db, version) {
+        return db.execute(createIntervalsTableQuery);
+      },
     );
   }
 
-  Future<List<IntervalSession>> getIntervals() async {
-    final db = await database;
-    final List<Map<String, dynamic>> intervalMaps = await db.query(
-      'intervals',
-      orderBy: 'id',
-    );
-
-    return intervalMaps.map(IntervalSession.fromMap).toList();
-  }
-
-  Future<IntervalSession?> getIntervalById(int id) async {
-    final db = await database;
-
-    final result = await db.query(
-      'intervals',
-      where: 'id = ?',
-      whereArgs: [id],
-      limit: 1,
-    );
-
-    if (result.isEmpty) return null;
-
-    return IntervalSession.fromMap(result.first);
-  }
-
-  Future<int> updateInterval(IntervalSession interval) async {
-    final db = await database;
-    return db.update(
-      'intervals',
-      interval.copyWith(lastUpdatedAt: DateTime.now()).toMap(),
-      where: 'id = ?',
-      whereArgs: [interval.id],
-    );
-  }
-
-  Future<int> deleteInterval(int id) async {
-    final db = await database;
-    return db.delete(
-      'intervals',
-      where: 'id = ?',
-      whereArgs: [id],
-    );
-  }
+// Future<int> insertInterval(IntervalSession interval) async {
+//   final db = await database;
+//   return db.insert(
+//     'intervals',
+//     interval.toMap(),
+//     conflictAlgorithm: ConflictAlgorithm.replace,
+//   );
+// }
+//
+// Future<List<IntervalSession>> getIntervals() async {
+//   final db = await database;
+//   final List<Map<String, dynamic>> intervalMaps = await db.query(
+//     'intervals',
+//     orderBy: 'id',
+//   );
+//
+//   return intervalMaps.map(IntervalSession.fromMap).toList();
+// }
+//
+// Future<IntervalSession?> getIntervalById(int id) async {
+//   final db = await database;
+//
+//   final result = await db.query(
+//     'intervals',
+//     where: 'id = ?',
+//     whereArgs: [id],
+//     limit: 1,
+//   );
+//
+//   if (result.isEmpty) return null;
+//
+//   return IntervalSession.fromMap(result.first);
+// }
+//
+// Future<int> updateInterval(IntervalSession interval) async {
+//   final db = await database;
+//   return db.update(
+//     'intervals',
+//     interval.copyWith(lastUpdatedAt: DateTime.now()).toMap(),
+//     where: 'id = ?',
+//     whereArgs: [interval.id],
+//   );
+// }
+//
 }
