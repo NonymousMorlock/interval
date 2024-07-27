@@ -1,5 +1,7 @@
-class IntervalSession {
-  IntervalSession({
+import 'package:equatable/equatable.dart';
+
+class IntervalSession extends Equatable {
+  const IntervalSession({
     required this.id,
     required this.title,
     required this.prioritizeOverlap,
@@ -73,4 +75,17 @@ class IntervalSession {
       lastUpdatedAt: lastUpdatedAt ?? this.lastUpdatedAt,
     );
   }
+
+  @override
+  List<Object?> get props => [
+        id,
+        title,
+        description,
+        mainTime,
+        workTime,
+        restTime,
+        prioritizeOverlap,
+        createdAt,
+        lastUpdatedAt,
+      ];
 }
