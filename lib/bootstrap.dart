@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:interval/core/services/cache_helper.dart';
 import 'package:interval/core/services/injection_container.dart';
+import 'package:interval/core/singletons/current_platform.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:window_size/window_size.dart';
 
@@ -35,6 +36,10 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
   // Add cross-flavor configuration here
   WidgetsFlutterBinding.ensureInitialized();
+
+  // ⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠ MUST BE INITIALIZED BEFORE {init()} ⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠
+  CurrentPlatform(isMobile: !kIsWeb && (Platform.isAndroid || Platform.isIOS));
+
   await init();
   CacheHelper.instance
     ..init(sl<SharedPreferences>())
