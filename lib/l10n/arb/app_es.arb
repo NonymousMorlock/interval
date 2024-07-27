@@ -1,7 +1,7 @@
 {
     "@@locale": "es",
-    "counterAppBarTitle": "Contador",
-    "@counterAppBarTitle": {
-        "description": "Texto mostrado en la AppBar de la página del contador"
+    "homeEmptyCacheMessage": "No tienes ninguna sesión de intervalo guardada. Crea una para verla aquí.",
+    "@homeEmptyCacheMessage": {
+        "description": "Texto mostrado cuando el usuario no tiene sesiones de intervalo guardadas"
     }
 }

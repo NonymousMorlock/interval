@@ -1,7 +1,7 @@
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
+    "homeEmptyCacheMessage": "You do not have any interval sessions saved yet. Create one to see it here.",
+    "@homeEmptyCacheMessage": {
+        "description": "Text shown when the user has no interval sessions saved"
     }
 }
