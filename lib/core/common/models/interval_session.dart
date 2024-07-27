@@ -13,6 +13,17 @@ class IntervalSession extends Equatable {
     this.description,
   });
 
+  IntervalSession.empty()
+      : this(
+          id: -1,
+          title: 'Test String',
+          prioritizeOverlap: false,
+          mainTime: 0,
+          workTime: 0,
+          restTime: 0,
+          createdAt: DateTime.now(),
+        );
+
   factory IntervalSession.fromMap(Map<String, dynamic> map) {
     return IntervalSession(
       id: (map['id'] as num).toInt(),
