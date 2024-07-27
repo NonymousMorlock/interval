@@ -4,7 +4,10 @@ final router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (_, __) => const HomeView(),
+      builder: (_, __) => BlocProvider(
+        create: (_) => sl<HomeViewModelCubit>(),
+        child: const HomePage(),
+      ),
     ),
   ],
 );
