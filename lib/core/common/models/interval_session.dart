@@ -28,7 +28,7 @@ class IntervalSession extends Equatable {
     return IntervalSession(
       id: (map['id'] as num).toInt(),
       title: map['title'] as String,
-      description: map['description'] as String,
+      description: map['description'] as String?,
       mainTime: (map['mainTime'] as num).toInt(),
       workTime: (map['workTime'] as num).toInt(),
       restTime: (map['restTime'] as num).toInt(),
