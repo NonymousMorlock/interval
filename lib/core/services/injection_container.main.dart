@@ -5,6 +5,13 @@ final sl = GetIt.instance;
 Future<void> init() async {
   await _initMemory();
   await _initHome();
+  await _initManageInterval();
+}
+
+Future<void> _initManageInterval() async {
+  sl
+    ..registerFactory(() => ManageIntervalCubit(sl()))
+    ..registerLazySingleton(() => ManageIntervalLocalRepository(sl()));
 }
 
 Future<void> _initHome() async {
