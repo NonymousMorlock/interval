@@ -10,6 +10,9 @@ dependencies:
   bloc: ^8.1.4
   dartz: ^0.10.1
   device_preview: ^1.2.0
+  duration_picker_dialog_box:
+    git:
+      url: https://github.com/NonymousMorlock/duration_picker_dialog_box.git
   equatable: ^2.0.5
   flutter:
     sdk: flutter
