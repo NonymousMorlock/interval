@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
@@ -21,6 +23,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<IntervalSession> intervals = [];
+
   @override
   void initState() {
     super.initState();
@@ -63,8 +66,14 @@ class _HomePageState extends State<HomePage> {
               icon: const Icon(Icons.add),
             )
           : FloatingActionButton(
-              onPressed: () {
-                context.push(CreateIntervalSessionPage.path);
+              onPressed: () async {
+                final cubit = context.read<HomeViewModelCubit>();
+                final result =
+                    await context.push<bool>(CreateIntervalSessionPage.path);
+
+                if (result ?? false) {
+                  unawaited(cubit.getIntervalSessions());
+                }
               },
               child: const Icon(Icons.add),
             ),
