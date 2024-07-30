@@ -8,9 +8,17 @@ abstract class CoreUtils {
     required String message,
     Color? backgroundColour,
     Color? textColour,
+    SnackBarAction? action,
+    Duration? duration,
+    bool? showCloseIcon,
   }) {
     final snackBar = SnackBar(
       backgroundColor: backgroundColour ?? context.theme.primaryColor,
+      action: action,
+      duration: duration ?? const Duration(milliseconds: 4000),
+      showCloseIcon: showCloseIcon,
+      closeIconColor: textColour ?? Colors.white,
+      behavior: SnackBarBehavior.floating,
       content: Text(
         message,
         style: TextStyle(color: textColour ?? Colors.white),
