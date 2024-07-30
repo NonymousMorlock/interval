@@ -10,7 +10,7 @@ import 'package:interval/core/utils/core_utils.dart';
 import 'package:interval/src/home/view_models/home_view_model_cubit.dart';
 import 'package:interval/src/home/views/pages/responsive/mobile.dart';
 import 'package:interval/src/home/views/widgets/theme_toggle.dart';
-import 'package:interval/src/manage_interval/views/pages/create_interval_session_page.dart';
+import 'package:interval/src/manage_interval/views/pages/create_or_update_interval_session.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -68,8 +68,8 @@ class _HomePageState extends State<HomePage> {
           : FloatingActionButton(
               onPressed: () async {
                 final cubit = context.read<HomeViewModelCubit>();
-                final result =
-                    await context.push<bool>(CreateIntervalSessionPage.path);
+                final result = await context
+                    .push<bool>(CreateOrUpdateIntervalSessionPage.path);
 
                 if (result ?? false) {
                   unawaited(cubit.getIntervalSessions());
