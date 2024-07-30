@@ -13,6 +13,7 @@ sealed class DatabaseHelper {
       'restTime INTEGER NOT NULL, '
       'createdAt STRING NOT NULL, '
       'description STRING, '
+      'prioritizeOverlap INTEGER NOT NULL, '
       // ignore: missing_whitespace_between_adjacent_strings
       'lastUpdatedAt STRING'
       ')';
