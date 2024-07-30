@@ -1,6 +1,20 @@
 import 'package:equatable/equatable.dart';
 
+/// Represents an interval session.
+///
+/// An interval session is a session that has a main time, work time, and rest
+/// time. The main time is the total time of the session, the work time is the
+/// time spent working, and the rest time is the time spent resting. The session
+/// can also have a title, description, and whether to prioritize overlap or
+/// not.
 class IntervalSession extends Equatable {
+  /// Creates a new [IntervalSession] instance.
+  ///
+  /// [mainTime], [workTime], and [restTime] are in microseconds, and this is
+  /// because they are originally collected from the [Duration] class. If we
+  /// want to get all the values of a given a duration then we have to
+  /// account for even the microseconds, given that we let them pick all the
+  /// values from day to microseconds.
   const IntervalSession({
     required this.id,
     required this.title,
@@ -40,14 +54,31 @@ class IntervalSession extends Equatable {
     );
   }
 
+  /// The unique identifier for this session.
   final int id;
+
+  /// The title of the session.
   final String title;
+
+  /// The description of the session.
   final String? description;
+
+  /// The main time of the session. In microseconds.
   final int mainTime;
+
+  /// The work time of the session. In microseconds.
   final int workTime;
+
+  /// The rest time of the session. In microseconds.
   final int restTime;
+
+  /// Whether to prioritize overlap or not.
   final bool prioritizeOverlap;
+
+  /// The date and time this session was created.
   final DateTime createdAt;
+
+  /// The date and time this session was last updated.
   final DateTime? lastUpdatedAt;
 
   Map<String, dynamic> toMap() {
