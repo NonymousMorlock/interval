@@ -3,5 +3,21 @@
     "homeEmptyCacheMessage": "No tienes ninguna sesión de intervalo guardada. Crea una para verla aquí.",
     "@homeEmptyCacheMessage": {
         "description": "Texto mostrado cuando el usuario no tiene sesiones de intervalo guardadas"
+    },
+    "deleteIntervalConfirmationTitle": "Eliminar sesión de intervalo",
+    "@deleteIntervalConfirmationTitle": {
+        "description": "Título del diálogo mostrado cuando el usuario intenta eliminar una sesión de intervalo"
+    },
+    "deleteIntervalConfirmationMessage": "¿Estás seguro de que deseas eliminar esta sesión de intervalo?",
+    "@deleteIntervalConfirmationMessage": {
+        "description": "Mensaje del diálogo mostrado cuando el usuario intenta eliminar una sesión de intervalo"
+    },
+    "deleteIntervalConfirmationCancel": "Cancelar",
+    "@deleteIntervalConfirmationCancel": {
+        "description": "Texto del botón de cancelar del diálogo mostrado cuando el usuario intenta eliminar una sesión de intervalo"
+    },
+    "deleteIntervalConfirmationDelete": "Eliminar",
+    "@deleteIntervalConfirmationDelete": {
+        "description": "Texto del botón de eliminar del diálogo mostrado cuando el usuario intenta eliminar una sesión de intervalo"
     }
 }
