@@ -3,5 +3,73 @@
     "homeEmptyCacheMessage": "You do not have any interval sessions saved yet. Create one to see it here.",
     "@homeEmptyCacheMessage": {
         "description": "Text shown when the user has no interval sessions saved"
+    },
+    "themeLight": "Light",
+    "@themeLight": {
+        "description": "Text of the light theme option"
+    },
+    "themeDark": "Dark",
+    "@themeDark": {
+        "description": "Text of the dark theme option"
+    },
+    "themeSystem": "System",
+    "@themeSystem": {
+        "description": "Text of the system theme option"
+    },
+    "deleteIntervalConfirmationTitle": "Delete interval session",
+    "@deleteIntervalConfirmationTitle": {
+        "description": "Title of the dialog shown when the user tries to delete an interval session"
+    },
+    "deleteIntervalConfirmationMessage": "Are you sure you want to delete this interval session?",
+    "@deleteIntervalConfirmationMessage": {
+        "description": "Message of the dialog shown when the user tries to delete an interval session"
+    },
+    "deleteIntervalConfirmationCancel": "Cancel",
+    "@deleteIntervalConfirmationCancel": {
+        "description": "Text of the cancel button of the dialog shown when the user tries to delete an interval session"
+    },
+    "deleteIntervalConfirmationDelete": "Delete",
+    "@deleteIntervalConfirmationDelete": {
+        "description": "Text of the delete button of the dialog shown when the user tries to delete an interval session"
     }
+    "addIntervalSessionTitle": "Add interval session",
+    "@addIntervalSessionTitle": {
+        "description": "Title of the dialog shown when the user tries to add an interval session"
+    },
+    "updateIntervalSessionTitle": "Update interval session",
+    "@updateIntervalSessionTitle": {
+        "description": "Title of the dialog shown when the user tries to update an interval session"
+    },
+    "title": "Title",
+    "@title": {
+        "description": "Text of the title field"
+    },
+    "description": "Description (Optional)",
+    "@description": {
+        "description": "Text of the description field"
+    },
+    "selectMainDuration": "Select Main Duration",
+    "@selectMainDuration": {
+        "description": "Text of the main duration field"
+    },
+    "selectRestDuration": "Select Rest Duration",
+    "@selectRestDuration": {
+        "description": "Text of the rest duration field"
+    },
+    "selectWorkDuration": "Select Work Duration",
+    "@selectWorkDuration": {
+        "description": "Text of the work duration field"
+    },
+    "saveIntervalSession": "Save Interval Session",
+    "@saveIntervalSession": {
+        "description": "Text of the save button"
+    },
+    "overlapDetected": "Overlap Detected",
+    "@overlapDetected": {
+        "description": "Text shown when the user tries to save an interval session that overlaps with another"
+    },
+    "prioritizeOverlap": "Prioritize Overlap",
+    "@prioritizeOverlap": {
+        "description": "Text of the prioritize overlap button"
+    },
 }
