@@ -97,10 +97,11 @@ class _CreateOrUpdateIntervalSessionPageState
   }
 
   Future<void> _saveIntervalSession() async {
+    final description = _descriptionController.text.trim();
     final newSession = IntervalSession(
       id: isEditMode ? widget.session!.id : -1,
       title: _titleController.text.trim(),
-      description: _descriptionController.text.trim(),
+      description: description.isEmpty ? null : description,
       mainTime: _mainTime.inMicroseconds,
       workTime: _workTime.inMicroseconds,
       restTime: _restTime.inMicroseconds,
