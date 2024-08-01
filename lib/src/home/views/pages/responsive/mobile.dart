@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:interval/core/common/models/interval_session.dart';
 import 'package:interval/l10n/l10n.dart';
+import 'package:interval/src/home/views/widgets/interval_session_tile.dart';
 
 class HomeMobileView extends StatelessWidget {
   const HomeMobileView({required this.intervals, super.key});
@@ -24,13 +25,7 @@ class HomeMobileView extends StatelessWidget {
           _ => ListView.builder(
               itemCount: intervals.length,
               itemBuilder: (_, index) {
-                final interval = intervals[index];
-                return ListTile(
-                  title: Text(interval.title),
-                  subtitle: interval.description == null
-                      ? null
-                      : Text(interval.description!),
-                );
+                return IntervalSessionTile(intervals[index]);
               },
             ),
         },
