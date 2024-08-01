@@ -166,7 +166,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "9e97fb1cf1f8c1309ece5bc677eefb6de5775f8f"
+      resolved-ref: "20aa8868ab551c6609e551871d912c0c711738aa"
       url: "https://github.com/NonymousMorlock/duration_picker_dialog_box.git"
     source: git
     version: "1.0.2"
