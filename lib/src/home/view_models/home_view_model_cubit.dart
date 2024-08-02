@@ -10,9 +10,9 @@ class HomeViewModelCubit extends Cubit<HomeViewModelState> {
 
   final HomeLocalRepository _repository;
 
-  Future<void> getIntervalSessions() async {
+  Future<void> getIntervalSessions({bool ascending = true}) async {
     emit(const HomeViewModelLoading());
-    final result = await _repository.getSessions();
+    final result = await _repository.getSessions(ascending: ascending);
 
     result.fold(
       (failure) => emit(HomeViewModelError(failure.errorMessage)),
