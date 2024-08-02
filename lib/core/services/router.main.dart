@@ -16,9 +16,11 @@ final router = GoRouter(
         ),
         GoRoute(
           path: CreateOrUpdateIntervalSessionPage.path,
-          builder: (_, __) => BlocProvider(
+          builder: (_, state) => BlocProvider(
             create: (_) => sl<ManageIntervalCubit>(),
-            child: const CreateOrUpdateIntervalSessionPage(),
+            child: CreateOrUpdateIntervalSessionPage(
+              session: state.extra as IntervalSession?,
+            ),
           ),
         ),
       ],
