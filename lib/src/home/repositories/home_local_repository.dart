@@ -10,11 +10,13 @@ class HomeLocalRepository {
 
   final Database _db;
 
-  ResultFuture<List<IntervalSession>> getSessions() async {
+  ResultFuture<List<IntervalSession>> getSessions({
+    bool ascending = true,
+  }) async {
     try {
       final intervalMaps = await _db.query(
         'intervals',
-        orderBy: 'id',
+        orderBy: 'id ${ascending ? 'ASC' : 'DESC'}',
       );
 
       final intervals = intervalMaps.map(IntervalSession.fromMap).toList();
