@@ -1,6 +1,7 @@
 import 'package:duration_picker_dialog_box/duration_picker_dialog_box.dart';
 import 'package:flutter/material.dart';
 import 'package:interval/core/extensions/context_extensions.dart';
+import 'package:interval/core/extensions/duration_extensions.dart';
 
 class DurationPicker extends StatelessWidget {
   const DurationPicker({
@@ -16,7 +17,6 @@ class DurationPicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('Initial Duration: $initialDuration');
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: context.theme.colorScheme.primary,
@@ -24,11 +24,25 @@ class DurationPicker extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
       onPressed: () async {
+        var durationPickerMode = DurationPickerMode.Minute;
+        if (initialDuration.inDays > 0) {
+          durationPickerMode = DurationPickerMode.Day;
+        } else if (initialDuration.hoursPart > 0) {
+          durationPickerMode = DurationPickerMode.Hour;
+        } else if (initialDuration.minutesPart > 0) {
+          durationPickerMode = DurationPickerMode.Minute;
+        } else if (initialDuration.secondsPart > 0) {
+          durationPickerMode = DurationPickerMode.Second;
+        } else if (initialDuration.millisecondsPart > 0) {
+          durationPickerMode = DurationPickerMode.MilliSecond;
+        } else if (initialDuration.microsecondsPart > 0) {
+          durationPickerMode = DurationPickerMode.MicroSecond;
+        }
         final duration = await showDurationPicker(
           context: context,
           initialDuration: initialDuration,
           showHead: false,
-          durationPickerMode: DurationPickerMode.Minute,
+          durationPickerMode: durationPickerMode,
           durationTypeChangerButtonColour:
               context.theme.colorScheme.primaryContainer,
           okTextColour: context.theme.colorScheme.secondary,
@@ -37,8 +51,6 @@ class DurationPicker extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
           ),
         );
-        debugPrint(duration?.inSeconds.toString());
-
         if (duration != null) {
           onPicked?.call(duration);
         }
