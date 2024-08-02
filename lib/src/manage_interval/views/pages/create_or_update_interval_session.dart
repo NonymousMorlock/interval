@@ -107,7 +107,7 @@ class _CreateOrUpdateIntervalSessionPageState
       restTime: _restTime.inMicroseconds,
       prioritizeOverlap: _prioritizeOverlap,
       createdAt: isEditMode ? widget.session!.createdAt : DateTime.now(),
-      lastUpdatedAt: isEditMode ? DateTime.now() : null,
+      lastUpdatedAt: widget.session?.lastUpdatedAt,
     );
 
     if (isEditMode && widget.session == newSession) return;
