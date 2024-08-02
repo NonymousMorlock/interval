@@ -48,6 +48,12 @@ class _HomePageState extends State<HomePage> {
             }
           } else if (state case IntervalsFetched(:final intervals)) {
             this.intervals = intervals;
+          } else if (state is IntervalDeleted) {
+            CoreUtils.showSnackBar(
+              context,
+              message: 'Interval Session deleted',
+            );
+            fetchIntervals();
           }
         },
         builder: (_, state) {
