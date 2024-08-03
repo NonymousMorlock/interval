@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:interval/core/common/app/current_theme_mode.dart';
 import 'package:interval/core/extensions/context_extensions.dart';
 import 'package:interval/core/services/cache_helper.dart';
+import 'package:interval/l10n/l10n.dart';
 
 class ThemeToggle extends StatelessWidget {
   const ThemeToggle({super.key});
@@ -76,9 +77,9 @@ class ThemeToggle extends StatelessWidget {
                   const Gap(3),
                   Text(
                     switch (themeMode) {
-                      ThemeMode.dark => 'Dark',
-                      ThemeMode.light => 'Light',
-                      ThemeMode.system => 'System',
+                      ThemeMode.dark => context.l10n.themeDark,
+                      ThemeMode.light => context.l10n.themeLight,
+                      ThemeMode.system => context.l10n.themeSystem,
                     },
                   ),
                 ],
