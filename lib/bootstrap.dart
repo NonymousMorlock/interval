@@ -8,6 +8,7 @@ import 'package:flutter/widgets.dart';
 import 'package:interval/core/services/cache_helper.dart';
 import 'package:interval/core/services/injection_container.dart';
 import 'package:interval/core/singletons/current_platform.dart';
+import 'package:rive/rive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:window_size/window_size.dart';
 
@@ -49,5 +50,6 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     setWindowMinSize(const Size(1300, 800));
     setWindowMaxSize(Size.infinite);
   }
+  unawaited(RiveFile.initialize());
   runApp(await builder());
 }
