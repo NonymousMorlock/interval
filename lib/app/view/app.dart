@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:interval/core/common/app/current_theme_mode.dart';
 import 'package:interval/core/services/router.dart';
@@ -52,6 +53,8 @@ class App extends StatelessWidget {
               bodyMedium: TextStyle(color: Color(0xFFB0B0B0)),
             ),
           ),
+          locale: DevicePreview.locale(context),
+          builder: DevicePreview.appBuilder,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
         );
