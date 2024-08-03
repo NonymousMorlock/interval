@@ -44,25 +44,6 @@ sealed class DatabaseHelper {
     );
   }
 
-// Future<int> insertInterval(IntervalSession interval) async {
-//   final db = await database;
-//   return db.insert(
-//     'intervals',
-//     interval.toMap(),
-//     conflictAlgorithm: ConflictAlgorithm.replace,
-//   );
-// }
-//
-// Future<List<IntervalSession>> getIntervals() async {
-//   final db = await database;
-//   final List<Map<String, dynamic>> intervalMaps = await db.query(
-//     'intervals',
-//     orderBy: 'id',
-//   );
-//
-//   return intervalMaps.map(IntervalSession.fromMap).toList();
-// }
-//
 // Future<IntervalSession?> getIntervalById(int id) async {
 //   final db = await database;
 //
@@ -77,15 +58,4 @@ sealed class DatabaseHelper {
 //
 //   return IntervalSession.fromMap(result.first);
 // }
-//
-// Future<int> updateInterval(IntervalSession interval) async {
-//   final db = await database;
-//   return db.update(
-//     'intervals',
-//     interval.copyWith(lastUpdatedAt: DateTime.now()).toMap(),
-//     where: 'id = ?',
-//     whereArgs: [interval.id],
-//   );
-// }
-//
 }
