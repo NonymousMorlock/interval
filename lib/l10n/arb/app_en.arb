@@ -16,6 +16,10 @@
     "@themeSystem": {
         "description": "Text of the system theme option"
     },
+    "createIntervalSession": "Create Interval Session",
+    "@createIntervalSession": {
+        "description": "Text of the create interval session button"
+    },
     "deleteIntervalConfirmationTitle": "Delete interval session",
     "@deleteIntervalConfirmationTitle": {
         "description": "Title of the dialog shown when the user tries to delete an interval session"
@@ -31,7 +35,7 @@
     "deleteIntervalConfirmationDelete": "Delete",
     "@deleteIntervalConfirmationDelete": {
         "description": "Text of the delete button of the dialog shown when the user tries to delete an interval session"
-    }
+    },
     "addIntervalSessionTitle": "Add interval session",
     "@addIntervalSessionTitle": {
         "description": "Title of the dialog shown when the user tries to add an interval session"
@@ -60,6 +64,18 @@
     "@selectWorkDuration": {
         "description": "Text of the work duration field"
     },
+    "mainDuration": "Main Duration",
+    "@mainDuration": {
+        "description": "Text of the main duration field"
+    },
+    "restDuration": "Rest Duration",
+    "@restDuration": {
+        "description": "Text of the rest duration field"
+    },
+    "workDuration": "Work Duration",
+    "@workDuration": {
+        "description": "Text of the work duration field"
+    },
     "saveIntervalSession": "Save Interval Session",
     "@saveIntervalSession": {
         "description": "Text of the save button"
@@ -71,5 +87,5 @@
     "prioritizeOverlap": "Prioritize Overlap",
     "@prioritizeOverlap": {
         "description": "Text of the prioritize overlap button"
-    },
+    }
 }

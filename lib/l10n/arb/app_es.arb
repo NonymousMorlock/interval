@@ -4,6 +4,22 @@
     "@homeEmptyCacheMessage": {
         "description": "Texto mostrado cuando el usuario no tiene sesiones de intervalo guardadas"
     },
+    "themeLight": "Claro",
+    "@themeLight": {
+        "description": "Texto de la opción de tema claro"
+    },
+    "themeDark": "Oscuro",
+    "@themeDark": {
+        "description": "Texto de la opción de tema oscuro"
+    },
+    "themeSystem": "Sistema",
+    "@themeSystem": {
+        "description": "Texto de la opción de tema del sistema"
+    },
+    "createIntervalSession": "Crear sesión de intervalo",
+    "@createIntervalSession": {
+        "description": "Texto del botón de crear sesión de intervalo"
+    },
     "deleteIntervalConfirmationTitle": "Eliminar sesión de intervalo",
     "@deleteIntervalConfirmationTitle": {
         "description": "Título del diálogo mostrado cuando el usuario intenta eliminar una sesión de intervalo"
@@ -19,5 +35,57 @@
     "deleteIntervalConfirmationDelete": "Eliminar",
     "@deleteIntervalConfirmationDelete": {
         "description": "Texto del botón de eliminar del diálogo mostrado cuando el usuario intenta eliminar una sesión de intervalo"
+    },
+    "addIntervalSessionTitle": "Agregar sesión de intervalo",
+    "@addIntervalSessionTitle": {
+        "description": "Título del diálogo mostrado cuando el usuario intenta agregar una sesión de intervalo"
+    },
+    "updateIntervalSessionTitle": "Actualizar sesión de intervalo",
+    "@updateIntervalSessionTitle": {
+        "description": "Título del diálogo mostrado cuando el usuario intenta actualizar una sesión de intervalo"
+    },
+    "title": "Título",
+    "@title": {
+        "description": "Texto del campo de título"
+    },
+    "description": "Descripción (Opcional)",
+    "@description": {
+        "description": "Texto del campo de descripción"
+    },
+    "selectMainDuration": "Seleccionar duración principal",
+    "@selectMainDuration": {
+        "description": "Texto del campo de duración principal"
+    },
+    "selectRestDuration": "Seleccionar duración de descanso",
+    "@selectRestDuration": {
+        "description": "Texto del campo de duración de descanso"
+    },
+    "selectWorkDuration": "Seleccionar duración de trabajo",
+    "@selectWorkDuration": {
+        "description": "Texto del campo de duración de trabajo"
+    },
+    "mainDuration": "Duración principal",
+    "@mainDuration": {
+        "description": "Texto del campo de duración principal"
+    },
+    "restDuration": "Duración de descanso",
+    "@restDuration": {
+        "description": "Texto del campo de duración de descanso"
+    },
+    "workDuration": "Duración de trabajo",
+    "@workDuration": {
+        "description": "Texto del campo de duración de trabajo"
+    },
+    "saveIntervalSession": "Guardar sesión de intervalo",
+    "@saveIntervalSession": {
+        "description": "Texto del botón de guardar"
+    },
+    "overlapDetected": "Solapamiento detectado",
+    "@overlapDetected": {
+        "description": "Texto mostrado cuando el usuario intenta guardar una sesión de intervalo que se solapa con otra"
+    },
+    "prioritizeOverlap": "Priorizar solapamiento",
+    "@prioritizeOverlap": {
+        "description": "Texto del botón de priorizar solapamiento"
     }
 }
