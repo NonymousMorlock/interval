@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:interval/core/common/models/interval_session.dart';
 import 'package:interval/core/singletons/current_platform.dart';
 import 'package:interval/core/utils/core_utils.dart';
+import 'package:interval/l10n/l10n.dart';
 import 'package:interval/src/home/view_models/home_view_model_cubit.dart';
 import 'package:interval/src/home/views/pages/responsive/mobile.dart';
 import 'package:interval/src/home/views/widgets/theme_toggle.dart';
@@ -70,13 +71,14 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {
                 // TODO(Create-Session): Open dialog to create interval session
               },
-              label: const Text('Create Interval Session'),
+              label: Text(context.l10n.createIntervalSession),
               icon: const Icon(Icons.add),
             )
           : FloatingActionButton(
               onPressed: () async {
-                final result = await context
-                    .push<bool>(CreateOrUpdateIntervalSessionPage.path);
+                final result = await context.push<bool>(
+                  CreateOrUpdateIntervalSessionPage.path,
+                );
 
                 if (result ?? false) fetchIntervals();
               },
