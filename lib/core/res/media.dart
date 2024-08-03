@@ -8,4 +8,6 @@ abstract class Media {
   static const gears$lottie = '$_baseLottie/gears.json';
 
   static const funTime$rive = '$_baseRive/fun_time.riv';
+  static const funTimeDark$rive = '$_baseRive/fun_time-dark.riv';
+  static const timer$rive = '$_baseRive/timer.riv';
 }
