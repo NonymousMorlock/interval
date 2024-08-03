@@ -60,7 +60,12 @@ class DurationPicker extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Icon(Icons.timer, color: Colors.white),
-          Text(title, style: const TextStyle(color: Colors.white)),
+          Flexible(
+            child: FittedBox(
+              fit: BoxFit.fitWidth,
+              child: Text(title, style: const TextStyle(color: Colors.white)),
+            ),
+          ),
         ],
       ),
     );
