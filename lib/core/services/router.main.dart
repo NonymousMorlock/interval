@@ -23,6 +23,15 @@ final router = GoRouter(
             ),
           ),
         ),
+        GoRoute(
+          path: CountdownPage.path,
+          builder: (_, state) {
+            return ChangeNotifierProvider(
+              create: (_) => TimerAnimationController(),
+              child: CountdownPage(state.extra! as IntervalSession),
+            );
+          },
+        ),
       ],
     ),
   ],
