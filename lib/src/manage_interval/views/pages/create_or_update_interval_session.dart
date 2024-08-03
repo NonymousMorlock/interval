@@ -13,6 +13,7 @@ import 'package:interval/core/extensions/context_extensions.dart';
 import 'package:interval/core/extensions/duration_extensions.dart';
 import 'package:interval/core/singletons/current_platform.dart';
 import 'package:interval/core/utils/core_utils.dart';
+import 'package:interval/l10n/l10n.dart';
 import 'package:interval/src/manage_interval/view_models/manage_interval_cubit.dart';
 import 'package:interval/src/manage_interval/views/utils/manage_interval_utils.dart';
 import 'package:interval/src/manage_interval/views/widgets/duration_picker.dart';
@@ -155,6 +156,7 @@ class _CreateOrUpdateIntervalSessionPageState
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return BlocListener<ManageIntervalCubit, ManageIntervalState>(
       listener: (context, state) {
         AppState.instance.stopLoading();
@@ -174,7 +176,9 @@ class _CreateOrUpdateIntervalSessionPageState
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            isEditMode ? 'Update Interval Session' : 'Add Interval Session',
+            isEditMode
+                ? l10n.updateIntervalSessionTitle
+                : l10n.addIntervalSessionTitle,
           ),
         ),
         body: Padding(
@@ -185,18 +189,18 @@ class _CreateOrUpdateIntervalSessionPageState
               children: [
                 InputField(
                   controller: _titleController,
-                  labelText: 'Title',
+                  labelText: l10n.title,
                 ),
                 const Gap(20),
                 InputField(
                   defaultValidation: false,
                   controller: _descriptionController,
-                  labelText: 'Description (Optional)',
+                  labelText: l10n.description,
                 ),
                 // button to 'Select Main Time'
                 const Gap(20),
                 DurationPicker(
-                  title: 'Select Main Duration',
+                  title: l10n.selectMainDuration,
                   initialDuration: _mainTime,
                   onPicked: (value) {
                     setState(() {
@@ -209,7 +213,7 @@ class _CreateOrUpdateIntervalSessionPageState
                 if (_mainTime != Duration.zero) ...[
                   const Gap(20),
                   Text(
-                    'Main Duration: ${_mainTime.timeInWords}',
+                    '${l10n.mainDuration}: ${_mainTime.timeInWords}',
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -217,7 +221,7 @@ class _CreateOrUpdateIntervalSessionPageState
                 const Gap(20),
 
                 DurationPicker(
-                  title: 'Select Work Duration',
+                  title: l10n.selectWorkDuration,
                   initialDuration: _workTime,
                   onPicked: (value) {
                     setState(() {
@@ -230,13 +234,13 @@ class _CreateOrUpdateIntervalSessionPageState
                 if (_workTime != Duration.zero) ...[
                   const Gap(20),
                   Text(
-                    'Work Duration: ${_workTime.timeInWords}',
+                    '${l10n.workDuration}: ${_workTime.timeInWords}',
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
                 const Gap(20),
                 DurationPicker(
-                  title: 'Select Rest Duration',
+                  title: l10n.selectRestDuration,
                   initialDuration: _restTime,
                   onPicked: (value) {
                     setState(() {
@@ -249,7 +253,7 @@ class _CreateOrUpdateIntervalSessionPageState
                 if (_restTime != Duration.zero) ...[
                   const Gap(20),
                   Text(
-                    'Rest Duration: ${_restTime.timeInWords}',
+                    '${l10n.restDuration}: ${_restTime.timeInWords}',
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -262,9 +266,9 @@ class _CreateOrUpdateIntervalSessionPageState
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Text(
-                            'Overlap Detected',
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                          Text(
+                            l10n.overlapDetected,
+                            style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                           const Gap(5),
                           Tooltip(
@@ -282,7 +286,7 @@ class _CreateOrUpdateIntervalSessionPageState
                         ],
                       ),
                       SwitchListTile(
-                        title: const Text('Prioritize Overlap'),
+                        title: Text(l10n.prioritizeOverlap),
                         value: _prioritizeOverlap,
                         onChanged: (value) {
                           setState(() {
@@ -296,10 +300,13 @@ class _CreateOrUpdateIntervalSessionPageState
                 const Gap(20),
                 ElevatedButton(
                   onPressed: _saveIntervalSession,
-                  child: Text(
-                    isEditMode
-                        ? 'Update Interval Session'
-                        : 'Save Interval Session',
+                  child: FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(
+                      isEditMode
+                          ? l10n.updateIntervalSessionTitle
+                          : l10n.saveIntervalSession,
+                    ),
                   ),
                 ),
               ],
