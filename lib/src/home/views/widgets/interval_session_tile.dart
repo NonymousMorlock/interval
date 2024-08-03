@@ -8,6 +8,7 @@ import 'package:interval/core/utils/core_utils.dart';
 import 'package:interval/l10n/l10n.dart';
 import 'package:interval/src/home/view_models/home_view_model_cubit.dart';
 import 'package:interval/src/manage_interval/views/pages/create_or_update_interval_session.dart';
+import 'package:interval/src/session/views/pages/countdown_page.dart';
 
 class IntervalSessionTile extends StatelessWidget {
   const IntervalSessionTile(this.interval, {super.key});
@@ -19,6 +20,7 @@ class IntervalSessionTile extends StatelessWidget {
     return Card(
       elevation: 8,
       child: ListTile(
+        onTap: () => context.push(CountdownPage.path, extra: interval),
         title: Text(
           interval.title,
           maxLines: 2,
