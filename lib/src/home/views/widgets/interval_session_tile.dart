@@ -58,10 +58,10 @@ class IntervalSessionTile extends StatelessWidget {
                 final result = await CoreUtils.showConfirmationDialog(
                   context,
                   confirmColor: Colors.red,
-                  title: context.l10n.deleteIntervalConfirmationTitle,
+                  title: context.l10n.deleteIntervalSession,
                   message: context.l10n.deleteIntervalConfirmationMessage,
-                  confirmText: context.l10n.deleteIntervalConfirmationDelete,
-                  cancelText: context.l10n.deleteIntervalConfirmationCancel,
+                  confirmText: context.l10n.delete,
+                  cancelText: context.l10n.cancel,
                 );
 
                 if (result) {
