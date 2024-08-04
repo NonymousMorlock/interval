@@ -175,3 +175,10 @@ Alternatively, run `flutter run` and code generation will take place automatical
 [very_good_analysis_link]: https://pub.dev/packages/very_good_analysis
 [very_good_cli_link]: https://github.com/VeryGoodOpenSource/very_good_cli
 <a href="https://www.flaticon.com/free-icons/interval" title="interval icons">Interval icons created by Three musketeers - Flaticon</a>
+
+### Rive Animations
+
+All rive animations are original works of [JcToon](https://rive.app/@JcToon/) and Remixed by Me.
+
+--- [Timer Animation](https://editor.rive.app/file/timer/858317)
+--- [Fun Time Animation](https://rive.app/community/files/189-346-fun-time/)
