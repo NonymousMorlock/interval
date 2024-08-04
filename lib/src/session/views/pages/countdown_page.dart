@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:interval/core/common/models/interval_session.dart';
-import 'package:interval/src/session/views/app/provider/timer_animation_controller.dart';
-import 'package:interval/src/session/views/widgets/timer.dart';
-import 'package:provider/provider.dart';
 
 class CountdownPage extends StatelessWidget {
   const CountdownPage(this.session, {super.key});
@@ -18,28 +14,35 @@ class CountdownPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(session.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Flexible(child: Timer()),
-            const Gap(16),
-            ElevatedButton(
-              onPressed: context.read<TimerAnimationController>().start,
-              child: const Text('Start'),
+      body: const Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            child: Placeholder(
+              color: Colors.red,
+              child: Center(
+                child: Text('Countdown', style: TextStyle(fontSize: 32)),
+              ),
             ),
-            const Gap(8),
-            ElevatedButton(
-              onPressed: context.read<TimerAnimationController>().pause,
-              child: const Text('Pause'),
+          ),
+          Expanded(
+            child: Placeholder(
+              color: Colors.blue,
+              child: Center(
+                child: Text('Animation', style: TextStyle(fontSize: 32)),
+              ),
             ),
-            const Gap(8),
-            ElevatedButton(
-              onPressed: context.read<TimerAnimationController>().reset,
-              child: const Text('Reset'),
+          ),
+          Expanded(
+            child: Placeholder(
+              color: Colors.green,
+              child: Center(
+                child: Text('Controls', style: TextStyle(fontSize: 32)),
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
