@@ -5,6 +5,7 @@ class TimerAnimationController extends ChangeNotifier {
   SMITrigger? _startTrigger;
   SMITrigger? _pauseTrigger;
   SMITrigger? _resetTrigger;
+  SMITrigger? _stopTrigger;
   StateMachineController? _stateController;
 
   String _state = 'Idle';
@@ -27,8 +28,12 @@ class TimerAnimationController extends ChangeNotifier {
     _pauseTrigger?.fire();
   }
 
+  void stop() {
+    _stopTrigger?.fire();
+  }
+
   void reset() {
-    if (_state != 'Stop') return;
+    if (_state != 'Stop' && _state != 'Pause') return;
     _resetTrigger?.fire();
   }
 
@@ -42,7 +47,14 @@ class TimerAnimationController extends ChangeNotifier {
     );
     artboard.addController(_stateController!);
     _startTrigger = _stateController!.findInput<bool>('Start')! as SMITrigger;
-    _pauseTrigger = _stateController!.findInput<bool>('Stop')! as SMITrigger;
+    _pauseTrigger = _stateController!.findInput<bool>('Pause')! as SMITrigger;
+    _stopTrigger = _stateController!.findInput<bool>('Stop')! as SMITrigger;
     _resetTrigger = _stateController!.findInput<bool>('Reset')! as SMITrigger;
+  }
+
+  @override
+  void dispose() {
+    _stateController?.dispose();
+    super.dispose();
   }
 }
