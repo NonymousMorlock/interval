@@ -20,28 +20,40 @@
     "@createIntervalSession": {
         "description": "Text of the create interval session button"
     },
-    "deleteIntervalConfirmationTitle": "Delete interval session",
-    "@deleteIntervalConfirmationTitle": {
+    "deleteIntervalSession": "Delete interval session",
+    "@deleteIntervalSession": {
         "description": "Title of the dialog shown when the user tries to delete an interval session"
     },
     "deleteIntervalConfirmationMessage": "Are you sure you want to delete this interval session?",
     "@deleteIntervalConfirmationMessage": {
         "description": "Message of the dialog shown when the user tries to delete an interval session"
     },
-    "deleteIntervalConfirmationCancel": "Cancel",
-    "@deleteIntervalConfirmationCancel": {
+    "cancel": "Cancel",
+    "@cancel": {
         "description": "Text of the cancel button of the dialog shown when the user tries to delete an interval session"
     },
-    "deleteIntervalConfirmationDelete": "Delete",
-    "@deleteIntervalConfirmationDelete": {
+    "delete": "Delete",
+    "@delete": {
         "description": "Text of the delete button of the dialog shown when the user tries to delete an interval session"
     },
-    "addIntervalSessionTitle": "Add interval session",
-    "@addIntervalSessionTitle": {
+    "continue$": "Continue",
+    "@continue$": {
+        "description": "Text of the continue button of the dialog shown when the user tries to delete an interval session"
+    },
+    "continueWithoutSaving": "Continue without saving",
+    "@continueWithoutSaving": {
+        "description": "Text of the continue without saving button of the dialog shown when the user tries to delete an interval session"
+    },
+    "continueWithoutSavingConfirmationMessage": "You are about to continue without saving this interval session. Are you sure you want to proceed?",
+    "@continueWithoutSavingConfirmationMessage": {
+        "description": "Message of the dialog shown when the user tries to delete an interval session"
+    },
+    "addIntervalSession": "Add interval session",
+    "@addIntervalSession": {
         "description": "Title of the dialog shown when the user tries to add an interval session"
     },
-    "updateIntervalSessionTitle": "Update interval session",
-    "@updateIntervalSessionTitle": {
+    "updateIntervalSession": "Update interval session",
+    "@updateIntervalSession": {
         "description": "Title of the dialog shown when the user tries to update an interval session"
     },
     "title": "Title",

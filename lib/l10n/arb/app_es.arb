@@ -20,28 +20,40 @@
     "@createIntervalSession": {
         "description": "Texto del botón de crear sesión de intervalo"
     },
-    "deleteIntervalConfirmationTitle": "Eliminar sesión de intervalo",
-    "@deleteIntervalConfirmationTitle": {
+    "deleteIntervalSession": "Eliminar sesión de intervalo",
+    "@deleteIntervalSession": {
         "description": "Título del diálogo mostrado cuando el usuario intenta eliminar una sesión de intervalo"
     },
     "deleteIntervalConfirmationMessage": "¿Estás seguro de que deseas eliminar esta sesión de intervalo?",
     "@deleteIntervalConfirmationMessage": {
         "description": "Mensaje del diálogo mostrado cuando el usuario intenta eliminar una sesión de intervalo"
     },
-    "deleteIntervalConfirmationCancel": "Cancelar",
-    "@deleteIntervalConfirmationCancel": {
+    "cancel": "Cancelar",
+    "@cancel": {
         "description": "Texto del botón de cancelar del diálogo mostrado cuando el usuario intenta eliminar una sesión de intervalo"
     },
-    "deleteIntervalConfirmationDelete": "Eliminar",
-    "@deleteIntervalConfirmationDelete": {
+    "delete": "Eliminar",
+    "@delete": {
         "description": "Texto del botón de eliminar del diálogo mostrado cuando el usuario intenta eliminar una sesión de intervalo"
     },
-    "addIntervalSessionTitle": "Agregar sesión de intervalo",
-    "@addIntervalSessionTitle": {
+    "continue$": "Continuar",
+    "@continue$": {
+        "description": "Texto del botón de continuar del diálogo mostrado cuando el usuario intenta eliminar una sesión de intervalo"
+    },
+    "continueWithoutSaving": "Continuar sin guardar",
+    "@continueWithoutSaving": {
+        "description": "Texto del botón de continuar sin guardar del diálogo mostrado cuando el usuario intenta eliminar una sesión de intervalo"
+    },
+    "continueWithoutSavingConfirmationMessage": "Estás a punto de continuar sin guardar esta sesión de intervalo. ¿Estás seguro de que deseas proceder?",
+    "@continueWithoutSavingConfirmationMessage": {
+        "description": "Mensaje del diálogo mostrado cuando el usuario intenta eliminar una sesión de intervalo"
+    },
+    "addIntervalSession": "Agregar sesión de intervalo",
+    "@addIntervalSession": {
         "description": "Título del diálogo mostrado cuando el usuario intenta agregar una sesión de intervalo"
     },
-    "updateIntervalSessionTitle": "Actualizar sesión de intervalo",
-    "@updateIntervalSessionTitle": {
+    "updateIntervalSession": "Actualizar sesión de intervalo",
+    "@updateIntervalSession": {
         "description": "Título del diálogo mostrado cuando el usuario intenta actualizar una sesión de intervalo"
     },
     "title": "Título",
@@ -80,12 +92,12 @@
     "@saveIntervalSession": {
         "description": "Texto del botón de guardar"
     },
-    "overlapDetected": "Solapamiento detectado",
+    "overlapDetected": "exceso detectado",
     "@overlapDetected": {
         "description": "Texto mostrado cuando el usuario intenta guardar una sesión de intervalo que se solapa con otra"
     },
-    "prioritizeOverlap": "Priorizar solapamiento",
+    "prioritizeOverlap": "Priorizar exceso",
     "@prioritizeOverlap": {
-        "description": "Texto del botón de priorizar solapamiento"
+        "description": "Texto del botón de priorizar exceso"
     }
 }
