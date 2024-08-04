@@ -9,9 +9,7 @@ import 'package:interval/core/utils/typedefs.dart';
   final workTime = Duration(microseconds: (dataMap['workTime'] as num).toInt());
   final restTime = Duration(microseconds: (dataMap['restTime'] as num).toInt());
 
-  if (mainTime == Duration.zero ||
-      workTime == Duration.zero ||
-      restTime == Duration.zero) {
+  if (mainTime == Duration.zero || workTime == Duration.zero) {
     return (overlap: Overlap.NONE, overlapDuration: Duration.zero);
   }
 
