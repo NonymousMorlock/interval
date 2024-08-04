@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
@@ -18,6 +19,7 @@ import 'package:interval/src/manage_interval/view_models/manage_interval_cubit.d
 import 'package:interval/src/manage_interval/views/utils/manage_interval_utils.dart';
 import 'package:interval/src/manage_interval/views/widgets/duration_picker.dart';
 import 'package:interval/src/manage_interval/views/widgets/overlap_message.dart';
+import 'package:interval/src/session/views/pages/countdown_page.dart';
 
 class CreateOrUpdateIntervalSessionPage extends StatefulWidget {
   const CreateOrUpdateIntervalSessionPage({super.key, this.session});
@@ -86,18 +88,22 @@ class _CreateOrUpdateIntervalSessionPageState
     });
   }
 
-  void _finalSaveAction(IntervalSession newSession) {
+  void _finalSaveAction({
+    required IntervalSession newSession,
+    bool save = true,
+  }) {
     final cubit = context.read<ManageIntervalCubit>();
     if (isEditMode) {
       cubit.updateIntervalSession(newSession);
       CoreUtils.showSnackBar(context, message: 'Interval updated');
-    } else {
+    } else if (save) {
       cubit.saveIntervalSession(newSession);
-      CoreUtils.showSnackBar(context, message: 'Interval saved');
+    } else {
+      context.pushReplacement(CountdownPage.path, extra: newSession);
     }
   }
 
-  Future<void> _saveIntervalSession() async {
+  Future<void> _saveIntervalSession({bool save = true}) async {
     final description = _descriptionController.text.trim();
     final newSession = IntervalSession(
       id: isEditMode ? widget.session!.id : -1,
@@ -112,44 +118,53 @@ class _CreateOrUpdateIntervalSessionPageState
     );
 
     if (isEditMode && widget.session == newSession) return;
-    if (_formKey.currentState!.validate()) {
+    if (!save || _formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-
+      // TODO(Internationalization): Add translations for the messages
       if (_mainTime == Duration.zero || _workTime == Duration.zero) {
         CoreUtils.showSnackBar(
           context,
           message: 'Main and Work durations are required',
         );
         return;
-      } else if (_restTime == Duration.zero) {
-        if (_workTime > _mainTime) {
-          CoreUtils.showSnackBar(
-            context,
-            duration: const Duration(seconds: 30),
-            message: 'Your work duration exceeds your main duration. If this '
-                'is intentional, please click [Continue] to proceed.',
-            showCloseIcon: true,
-            action: SnackBarAction(
-              label: 'Continue',
-              onPressed: () => _finalSaveAction(newSession),
-            ),
-          );
-        } else if (_mainTime > _workTime) {
-          CoreUtils.showSnackBar(
-            context,
-            duration: const Duration(seconds: 30),
-            message: 'Your main duration exceeds your work duration and you '
-                'have no interval[rest]. If this is intentional, please '
-                'click [Continue] to proceed.',
-            showCloseIcon: true,
-            action: SnackBarAction(
-              label: 'Continue',
-              onPressed: () => _finalSaveAction(newSession),
-            ),
-          );
+      } else if (_workTime > _mainTime || _restTime > _mainTime) {
+        var message = 'Your work duration exceeds your main duration. If this '
+            'is intentional, please click [Continue] to proceed.';
+        if (_restTime > _mainTime) {
+          message = 'Your rest duration exceeds your main duration. If this '
+              'is intentional, please click [Continue] to proceed.';
         }
+        CoreUtils.showSnackBar(
+          context,
+          duration: const Duration(seconds: 30),
+          message: message,
+          showCloseIcon: true,
+          action: SnackBarAction(
+            label: context.l10n.continue$,
+            onPressed: () => _finalSaveAction(
+              newSession: newSession,
+              save: save,
+            ),
+          ),
+        );
+      } else if (_restTime == Duration.zero && _mainTime > _workTime) {
+        CoreUtils.showSnackBar(
+          context,
+          duration: const Duration(seconds: 30),
+          message: 'Your main duration exceeds your work duration and you '
+              'have no interval[rest]. If this is intentional, please '
+              'click [Continue] to proceed.',
+          showCloseIcon: true,
+          action: SnackBarAction(
+            label: context.l10n.continue$,
+            onPressed: () => _finalSaveAction(
+              newSession: newSession,
+              save: save,
+            ),
+          ),
+        );
       } else {
-        _finalSaveAction(newSession);
+        _finalSaveAction(newSession: newSession, save: save);
       }
     }
   }
@@ -176,9 +191,7 @@ class _CreateOrUpdateIntervalSessionPageState
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            isEditMode
-                ? l10n.updateIntervalSessionTitle
-                : l10n.addIntervalSessionTitle,
+            isEditMode ? l10n.updateIntervalSession : l10n.addIntervalSession,
           ),
         ),
         body: Padding(
@@ -304,11 +317,31 @@ class _CreateOrUpdateIntervalSessionPageState
                     fit: BoxFit.fitWidth,
                     child: Text(
                       isEditMode
-                          ? l10n.updateIntervalSessionTitle
+                          ? l10n.updateIntervalSession
                           : l10n.saveIntervalSession,
                     ),
                   ),
                 ),
+                if (!isEditMode) ...[
+                  const Gap(20),
+                  ElevatedButton(
+                    onPressed: () async {
+                      final result = await CoreUtils.showConfirmationDialog(
+                        context,
+                        title: l10n.continueWithoutSaving,
+                        message: l10n.continueWithoutSavingConfirmationMessage,
+                        confirmText: l10n.continue$,
+                        cancelText: l10n.cancel,
+                      );
+
+                      if (result) unawaited(_saveIntervalSession(save: false));
+                    },
+                    child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Text(l10n.continueWithoutSaving),
+                    ),
+                  ),
+                ],
               ],
             ),
           ),
