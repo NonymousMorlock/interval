@@ -81,6 +81,9 @@ class IntervalSession extends Equatable {
   /// The date and time this session was last updated.
   final DateTime? lastUpdatedAt;
 
+  /// Whether the session has rest time or not.
+  bool get hasRestTime => restTime > 0;
+
   Map<String, dynamic> toMap() {
     return {
       'title': title,
