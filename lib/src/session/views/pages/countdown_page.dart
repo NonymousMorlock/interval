@@ -6,6 +6,7 @@ import 'package:interval/src/session/views/app/provider/time_ticker_controller.d
 import 'package:interval/src/session/views/app/provider/timer_animation_controller.dart';
 import 'package:interval/src/session/views/widgets/time_ticker.dart';
 import 'package:provider/provider.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 
 class CountdownPage extends StatefulWidget {
   const CountdownPage(this.session, {super.key});
@@ -27,6 +28,7 @@ class _CountdownPageState extends State<CountdownPage> {
   @override
   void initState() {
     super.initState();
+    WakelockPlus.enable();
     _mainTimeController = TimeTickerController(
       Duration(microseconds: widget.session.mainTime).inMilliseconds,
     )..addListener(mainControllerListener);
@@ -69,8 +71,7 @@ class _CountdownPageState extends State<CountdownPage> {
       setState(() {
         _activityState = SessionState.IDLE;
       });
-    } else if (_activityState != SessionState.WORKING &&
-        controller.isRunning) {
+    } else if (_activityState != SessionState.WORKING && controller.isRunning) {
       setState(() {
         _activityState = SessionState.WORKING;
       });
@@ -88,12 +89,17 @@ class _CountdownPageState extends State<CountdownPage> {
       setState(() {
         _activityState = SessionState.IDLE;
       });
-    } else if (_activityState != SessionState.RESTING &&
-        controller.isRunning) {
+    } else if (_activityState != SessionState.RESTING && controller.isRunning) {
       setState(() {
         _activityState = SessionState.RESTING;
       });
     }
+  }
+
+  @override
+  void dispose() {
+    WakelockPlus.disable();
+    super.dispose();
   }
 
   @override
