@@ -1,21 +1,20 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:interval/core/extensions/duration_extensions.dart';
 
-class Ticker extends StatefulWidget {
-  const Ticker(this.durationMilliseconds, {super.key});
+class TimeTicker extends StatefulWidget {
+  const TimeTicker(this.durationMilliseconds, {super.key});
 
   final int durationMilliseconds;
 
   @override
-  State<Ticker> createState() => _TickerState();
+  State<TimeTicker> createState() => _TimeTickerState();
 }
 
-class _TickerState extends State<Ticker> {
+class _TimeTickerState extends State<TimeTicker>
+    with SingleTickerProviderStateMixin {
   late DateTime _endTime;
-  Timer? _timer;
-
+  Ticker? _ticker;
   bool renderMilliseconds = false;
   Duration rate = const Duration(seconds: 1);
 
@@ -28,23 +27,27 @@ class _TickerState extends State<Ticker> {
       renderMilliseconds = true;
       rate = const Duration(milliseconds: 16);
     }
-    _startTimer();
+    _startTicker();
   }
 
-  void _startTimer() {
-    _timer = Timer.periodic(rate, (timer) {
-      final remainingTime = _remainingTime;
-      if (remainingTime <= 0) {
-        _timer?.cancel();
-      }
-      setState(() {});
+  void _startTicker() {
+    // createTicker comes from the TickerProvider mixin
+    // Alternatively we could declare a TickerProvider? _tickerProvider
+    // and in initState set it to `this`, but I mean who has time for that.
+    _ticker = createTicker((elapsed) {
+      setState(() {
+        if (_remainingTime <= 0) {
+          _ticker?.stop();
+        }
+      });
     });
+    _ticker!.start();
   }
 
   int get _remainingTime {
     final currentTime = DateTime.now();
     final difference = _endTime.difference(currentTime);
-    if(difference.isNegative) {
+    if(difference.inMilliseconds < 0) {
       return 0;
     }
     return renderMilliseconds
@@ -54,7 +57,7 @@ class _TickerState extends State<Ticker> {
 
   @override
   void dispose() {
-    _timer?.cancel();
+    _ticker?.dispose();
     super.dispose();
   }
 
