@@ -14,9 +14,15 @@ class FunTime extends StatelessWidget {
       builder: (_, themeMode, __) {
         if (themeMode == ThemeMode.dark ||
             (themeMode == ThemeMode.system && context.isDarkMode)) {
-          return const RiveAnimation.asset(Media.funTimeDark$rive);
+          return const RiveAnimation.asset(
+            Media.funTimeDark$rive,
+            useArtboardSize: true,
+          );
         }
-        return const RiveAnimation.asset(Media.funTime$rive);
+        return const RiveAnimation.asset(
+          Media.funTime$rive,
+          useArtboardSize: true,
+        );
       },
     );
   }
