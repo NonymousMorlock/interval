@@ -42,7 +42,8 @@ class _TimerState extends State<Timer> {
     return RiveAnimation.direct(
       key: UniqueKey(),
       _timerFile!,
-      fit: BoxFit.cover,
+      useArtboardSize: true,
+      alignment: Alignment.center,
       onInit: context.read<TimerAnimationController>().onInit,
     );
   }
