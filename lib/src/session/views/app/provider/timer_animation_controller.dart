@@ -33,7 +33,6 @@ class TimerAnimationController extends ChangeNotifier {
   }
 
   void reset() {
-    if (_state != 'Stop' && _state != 'Pause') return;
     _resetTrigger?.fire();
   }
 
