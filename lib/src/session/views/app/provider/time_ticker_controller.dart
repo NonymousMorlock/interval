@@ -133,6 +133,12 @@ class TimeTickerController extends ChangeNotifier {
     notifyListeners();
   }
 
+  void stopAndReset() {
+    stopTicker();
+    _endTime = DateTime.now().add(totalDuration);
+    notifyListeners();
+  }
+
   @override
   void dispose() {
     stopTicker();
