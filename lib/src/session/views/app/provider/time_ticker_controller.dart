@@ -116,7 +116,7 @@ class TimeTickerController extends ChangeNotifier {
   }
 
   /// Pause the ticker
-  void pauseTicker() {
+  void pauseTicker({int? remainingTime}) {
     if (!isRunning) return;
     _pauseTime = remainingTime;
     stopTicker();
