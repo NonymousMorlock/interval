@@ -102,7 +102,11 @@ class TimeTickerController extends ChangeNotifier {
   void startTicker() {
     if (isRunning) return;
     if (isPaused) {
-      _endTime = DateTime.now().add(Duration(milliseconds: _pauseTime!));
+      var pauseDuration = Duration(seconds: _pauseTime!);
+      if (renderMilliseconds) {
+        pauseDuration = Duration(milliseconds: _pauseTime!);
+      }
+      _endTime = DateTime.now().add(pauseDuration);
       _pauseTime = null;
     } else {
       _endTime = DateTime.now().add(totalDuration);
