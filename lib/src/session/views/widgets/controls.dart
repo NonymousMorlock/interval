@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 
 class Controls extends StatefulWidget {
   const Controls({
+    required this.stopTrigger,
     super.key,
     this.onPause,
     this.onPlay,
@@ -14,6 +15,7 @@ class Controls extends StatefulWidget {
   final VoidCallback? onPlay;
   final VoidCallback? onResume;
   final VoidCallback? onStop;
+  final ValueNotifier<bool> stopTrigger;
 
   @override
   State<Controls> createState() => _ControlsState();
@@ -25,6 +27,20 @@ class _ControlsState extends State<Controls> {
   bool showStop = false;
 
   bool canResume = false;
+
+  @override
+  void initState() {
+    super.initState();
+    widget.stopTrigger.addListener(() {
+      if (widget.stopTrigger.value) {
+        setState(() {
+          showPlay = true;
+          showPause = false;
+          showStop = false;
+        });
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
