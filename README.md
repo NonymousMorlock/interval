@@ -177,11 +177,16 @@ Alternatively, run `flutter run` and code generation will take place automatical
 [very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
 [very_good_analysis_link]: https://pub.dev/packages/very_good_analysis
 [very_good_cli_link]: https://github.com/VeryGoodOpenSource/very_good_cli
-[showcase_video_link]: showcase/showcase.mp4
+[showcase_video_link]: showcase/videos/showcase.mp4
 
-<a href="https://www.flaticon.com/free-icons/interval" title="interval icons">Interval icons created by Three musketeers - Flaticon</a>
 
 ---
+
+## Attribution
+
+### Icons
+<a href="https://www.flaticon.com/free-icons/interval" title="interval icons">Interval icons created by Three musketeers - Flaticon</a>
+
 
 ### Rive Animations
 
