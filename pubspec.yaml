@@ -28,7 +28,7 @@ dependencies:
   path: ^1.9.0
   provider: ^6.1.2
   rive: ^0.13.20
-  shared_preferences: ^2.3.5
+  shared_preferences: ^2.4.0
   sqflite: ^2.4.1
   sqflite_common_ffi: ^2.3.4
   wakelock_plus: ^1.2.10
