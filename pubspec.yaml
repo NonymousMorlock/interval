@@ -39,7 +39,7 @@ dependencies:
 
 dev_dependencies:
   bloc_test: ^10.0.0
-  flutter_launcher_icons: ^0.14.3
+  flutter_launcher_icons: ^0.14.4
   flutter_test:
     sdk: flutter
   mocktail: ^1.0.4
