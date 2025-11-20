@@ -27,6 +27,14 @@ class _HomePageState extends State<HomePage> {
     context.read<HomeViewModelCubit>().getIntervalSessions(ascending: false);
   }
 
+  Future<void> initiateCreation() async {
+    final result = await context.push<bool>(
+      CreateOrUpdateIntervalSessionPage.path,
+    );
+
+    if (result ?? false) fetchIntervals();
+  }
+
   @override
   void initState() {
     super.initState();
@@ -68,20 +76,12 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: CurrentPlatform.instance.isDesktop
           ? FloatingActionButton.extended(
-              onPressed: () {
-                // TODO(Create-Session): Open dialog to create interval session
-              },
+              onPressed: initiateCreation,
               label: Text(context.l10n.createIntervalSession),
               icon: const Icon(Icons.add),
             )
           : FloatingActionButton(
-              onPressed: () async {
-                final result = await context.push<bool>(
-                  CreateOrUpdateIntervalSessionPage.path,
-                );
-
-                if (result ?? false) fetchIntervals();
-              },
+              onPressed: initiateCreation,
               child: const Icon(Icons.add),
             ),
     );
