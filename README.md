@@ -10,7 +10,10 @@ A customizable interval timer app that allows users to set a main duration, work
 
 ### PREVIEW
 
-https://github.com/NonymousMorlock/interval/blob/main/showcase/videos/showcase.mp4
+
+
+https://github.com/user-attachments/assets/50734ea6-9b53-4585-9ba2-df017a4a04f8
+
 
 ---
 
