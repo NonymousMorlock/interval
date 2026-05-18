@@ -458,10 +458,10 @@ packages:
     dependency: transitive
     description:
       name: meta
-      sha256: "23f08335362185a5ea2ad3a4e597f1375e78bce8a040df5c600c8d3552ef2394"
+      sha256: "1741988757a65eb6b36abe716829688cf01910bbf91c34354ff7ec1c3de2b349"
       url: "https://pub.dev"
     source: hosted
-    version: "1.17.0"
+    version: "1.18.0"
   mime:
     dependency: transitive
     description:
@@ -514,18 +514,18 @@ packages:
     dependency: transitive
     description:
       name: package_info_plus
-      sha256: c2a4a9404e578d7c69e3cf19f0b057d906bd0b073deedc8006db997a8bfe97ca
+      sha256: "4bf625947f6c7713ee242296a682e23e44823c09cf9d79e4f1238923c92db852"
       url: "https://pub.dev"
     source: hosted
-    version: "10.0.0"
+    version: "10.1.0"
   package_info_plus_platform_interface:
     dependency: transitive
     description:
       name: package_info_plus_platform_interface
-      sha256: "063b21cce7a2e3d902897d6cefc3bd211bb8ea42190698be72219cd5017f1c65"
+      sha256: db762cb2f4f25ee60fb6359773861b0f199e00b90d237bd85a76a1e806b46ef4
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.0"
+    version: "4.1.0"
   path:
     dependency: "direct main"
     description:
@@ -847,26 +847,26 @@ packages:
     dependency: transitive
     description:
       name: test
-      sha256: "280d6d890011ca966ad08df7e8a4ddfab0fb3aa49f96ed6de56e3521347a9ae7"
+      sha256: "8d9ceddbab833f180fbefed08afa76d7c03513dfdba87ffcec2718b02bbcbf20"
       url: "https://pub.dev"
     source: hosted
-    version: "1.30.0"
+    version: "1.31.0"
   test_api:
     dependency: transitive
     description:
       name: test_api
-      sha256: "8161c84903fd860b26bfdefb7963b3f0b68fee7adea0f59ef805ecca346f0c7a"
+      sha256: "949a932224383300f01be9221c39180316445ecb8e7547f70a41a35bf421fb9e"
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.10"
+    version: "0.7.11"
   test_core:
     dependency: transitive
     description:
       name: test_core
-      sha256: "0381bd1585d1a924763c308100f2138205252fb90c9d4eeaf28489ee65ccde51"
+      sha256: "1991d4cfe85d5043241acac92962c3977c8d2f2add1ee73130c7b286417d1d34"
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.16"
+    version: "0.6.17"
   typed_data:
     dependency: transitive
     description:
@@ -903,18 +903,18 @@ packages:
     dependency: "direct main"
     description:
       name: wakelock_plus
-      sha256: "2b09acadd7a2862d33c3577e77e7a2aabb684f47ccca1711f1413bd7307a6a72"
+      sha256: "824c5bba0f800e86d32e57d3d1843c531f090005cc89d9a837933e6601093d53"
       url: "https://pub.dev"
     source: hosted
-    version: "1.6.0"
+    version: "1.6.1"
   wakelock_plus_platform_interface:
     dependency: transitive
     description:
       name: wakelock_plus_platform_interface
-      sha256: "14b2e5b9e35c2631e656913c47adecdd71633ae92896a27a64c8f1fcfabc21cc"
+      sha256: b13f99e992e7ae6a152e16c5559d3c07ff445b13330192662494e614ca3e7d7b
       url: "https://pub.dev"
     source: hosted
-    version: "1.5.0"
+    version: "1.5.1"
   watcher:
     dependency: transitive
     description:
