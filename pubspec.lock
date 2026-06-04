@@ -264,10 +264,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_platform_alert
-      sha256: "70f4979a617388cd890ec32e9acc1a6a425bcdf3d8b444eb976be1834e79dc0c"
+      sha256: e37e03134112a3d4cfa8a4ae64c1dc3e0f0803139c4dc779e29853b7dafa320e
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.0"
+    version: "0.9.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
