@@ -31,7 +31,7 @@ dependencies:
   shared_preferences: ^2.5.5
   sqflite: ^2.4.3
   sqflite_common_ffi: ^2.4.2
-  wakelock_plus: ^1.6.1
+  wakelock_plus: ^1.7.0
   window_size:
     git:
       url: https://github.com/google/flutter-desktop-embedding.git
